@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import "./Weather.css";
+
 const Weather = () => {
   const [city, setCity] = useState("");
   const [temperature, setTemperature] = useState(null);
@@ -34,7 +36,7 @@ const Weather = () => {
   }
 
   return (
-    <div>
+    <div className="Weather">
       <form onSubmit={handleSubmit}>
         <input
           type="search"
