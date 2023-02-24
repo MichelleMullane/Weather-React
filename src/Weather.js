@@ -50,9 +50,13 @@ const Weather = () => {
       {temperature ? (
         <div>
           <h3>
-            Current Weather in <em>{name}</em>
+            Current Weather in <em className="city-name">{name}</em>{" "}
           </h3>
+
           <ul className="weather">
+            <li>
+              <img src={iconURL} alt="weather-icon" />
+            </li>
             <li>
               <strong>Temperature: </strong>
               {Math.round(temperature)}°C
@@ -68,9 +72,6 @@ const Weather = () => {
             <li>
               <strong>Wind: </strong>
               {Math.round(wind)}km/h
-            </li>
-            <li>
-              <img src={iconURL} alt="weather-icon" />
             </li>
           </ul>
         </div>
