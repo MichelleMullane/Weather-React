@@ -1,6 +1,11 @@
 .Weather {
   border: 2px solid black;
+  border-radius: 5px;
   padding: 50px;
+}
+
+ul {
+  list-style: none;
 }
 
 .city-name {
@@ -9,4 +14,9 @@
 
 .temp {
   font-size: 36px;
+}
+
+.date-description {
+  padding-left: 0;
+  line-height: 1;
 }

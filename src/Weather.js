@@ -52,18 +52,33 @@ const Weather = () => {
           <h3>
             Current Weather in <em className="city-name">{name}</em>{" "}
           </h3>
+          <ul className="date-description">
+            <li>Saturday 17:40</li>
+            <li className="text-capitalize">{description}</li>
+          </ul>
 
           <div className="weather row">
             <div className="col">
-              <img src={iconURL} alt="weather-icon" />
-              <span className="temp">{Math.round(temperature)}</span>
-              °C
+              <div className="d-flex">
+                <div>
+                  <img src={iconURL} alt="weather-icon" />
+                </div>
+                <span className="temp">{Math.round(temperature)}</span>
+                <span>°C</span>
+              </div>
             </div>
-            <strong>Description: </strong>
-            {description}
-            <strong>Humidity: </strong>
-            {Math.round(humidity)}%<strong>Wind: </strong>
-            {Math.round(wind)}km/h
+            <div className="col">
+              <ul>
+                <li>
+                  <strong>Humidity: </strong>
+                  {Math.round(humidity)}%
+                </li>
+                <li>
+                  <strong>Wind: </strong>
+                  {Math.round(wind)}km/h
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       ) : null}
