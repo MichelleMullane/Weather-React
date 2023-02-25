@@ -53,27 +53,18 @@ const Weather = () => {
             Current Weather in <em className="city-name">{name}</em>{" "}
           </h3>
 
-          <ul className="weather">
-            <li>
+          <div className="weather row">
+            <div className="col">
               <img src={iconURL} alt="weather-icon" />
-            </li>
-            <li>
-              <strong>Temperature: </strong>
-              {Math.round(temperature)}°C
-            </li>
-            <li>
-              <strong>Description: </strong>
-              {description}
-            </li>
-            <li>
-              <strong>Humidity: </strong>
-              {Math.round(humidity)}%
-            </li>
-            <li>
-              <strong>Wind: </strong>
-              {Math.round(wind)}km/h
-            </li>
-          </ul>
+              <span className="temp">{Math.round(temperature)}</span>
+              °C
+            </div>
+            <strong>Description: </strong>
+            {description}
+            <strong>Humidity: </strong>
+            {Math.round(humidity)}%<strong>Wind: </strong>
+            {Math.round(wind)}km/h
+          </div>
         </div>
       ) : null}
     </div>
