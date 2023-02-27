@@ -58,14 +58,16 @@ const Weather = () => {
           </ul>
 
           <div className="weather row">
-            <div className="col">
-              <div className="d-flex">
-                <div>
-                  <img src={iconURL} alt="weather-icon" />
-                </div>
-                <span className="temp">{Math.round(temperature)}</span>
-                <span>°C</span>
+            <div className="col d-flex icon-temp">
+              <div>
+                <img
+                  src={iconURL}
+                  alt="weather-icon"
+                  className="weather-icon"
+                />
               </div>
+              <span className="temperature">{Math.round(temperature)}</span>
+              <span className="units">°C</span>
             </div>
             <div className="col">
               <ul>

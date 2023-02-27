@@ -8,11 +8,15 @@ ul {
   list-style: none;
 }
 
+.icon-temp {
+  align-items: center;
+}
+
 .city-name {
   font-size: 32px;
 }
 
-.temp {
+.temperature {
   font-size: 36px;
 }
 
