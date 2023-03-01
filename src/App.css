@@ -5,34 +5,7 @@
   max-width: 600px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.weather {
-  list-style: none;
-}
-
-.search-button {
-  border-radius: 8px;
-  padding: 5px 10px;
-  background-color: white;
-  transition: all 200ms ease-in-out;
-}
-
-.search-button:hover {
-  background-color: black;
-  border: 2px dashed white;
-  color: white;
-}
-
-.search-input {
-  border-radius: 8px;
-  padding: 5px 10px;
-}
-
-footer {
+.App footer {
   font-size: smaller;
-  margin-top: 50px;
+  margin-top: 30px;
 }

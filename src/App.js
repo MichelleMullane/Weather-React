@@ -7,9 +7,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="App-container">
-        <header className="App-header">
-          <h1>React Weather App</h1>
-        </header>
+        <header className="App-header"></header>
         <Weather />
         <footer>
           This project was coded by{" "}
