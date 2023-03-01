@@ -3,24 +3,22 @@ import axios from "axios";
 
 import "./Weather.css";
 
-const Weather = () => {
+const Weather = (props) => {
   const [city, setCity] = useState("");
-  const [temperature, setTemperature] = useState(null);
-  const [description, setDescription] = useState("");
-  const [humidity, setHumidity] = useState(null);
-  const [wind, setWind] = useState(null);
-  const [iconURL, setIconURL] = useState("");
-  const [name, setName] = useState("");
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function updateWeather(response) {
-    setTemperature(response.data.main.temp);
-    setDescription(response.data.weather[0].description);
-    setHumidity(response.data.main.humidity);
-    setWind(response.data.wind.speed);
-    setIconURL(
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-    setName(response.data.name);
+    console.log(response);
+    setWeatherData({
+      temperature: response.data.temperature.current,
+      description: response.data.condition.description,
+      humidity: response.data.temperature.humidity,
+      wind: response.data.wind.speed,
+      iconURL: response.data.condition.icon_url,
+      time: response.data.time,
+      name: response.data.city,
+      ready: true,
+    });
   }
 
   function handleChange(event) {
@@ -29,62 +27,69 @@ const Weather = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiKey = "08010f9a1b70b38b765f2b921b8d7364";
+    const apiKey = "bc0t009fc86043a8280dae34obbeaad7";
     let units = "metric";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
     axios.get(url).then(updateWeather);
   }
 
-  return (
-    <div className="Weather">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="search"
-          placeholder="Enter a city..."
-          onChange={handleChange}
-          className="search-input"
-        />
-        <input type="submit" value="Search" className="search-button" />
-      </form>
-
-      {temperature ? (
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            onChange={handleChange}
+            className="search-input"
+          />
+          <input type="submit" value="Search" className="search-button" />
+        </form>
         <div>
           <h3>
-            Current Weather in <em className="city-name">{name}</em>{" "}
+            Current Weather in <em className="city-name">{weatherData.name}</em>{" "}
           </h3>
           <ul className="date-description">
-            <li>Saturday 17:40</li>
-            <li className="text-capitalize">{description}</li>
+            <li>{weatherData.time}</li>
+            <li className="text-capitalize">{weatherData.description}</li>
           </ul>
 
           <div className="weather row">
             <div className="col d-flex icon-temp">
               <div>
                 <img
-                  src={iconURL}
+                  src={weatherData.iconURL}
                   alt="weather-icon"
                   className="weather-icon"
                 />
               </div>
-              <span className="temperature">{Math.round(temperature)}</span>
+              <span className="temperature">
+                {Math.round(weatherData.temperature)}
+              </span>
               <span className="units">°C</span>
             </div>
             <div className="col">
               <ul>
                 <li>
                   <strong>Humidity: </strong>
-                  {Math.round(humidity)}%
+                  {Math.round(weatherData.humidity)}%
                 </li>
                 <li>
                   <strong>Wind: </strong>
-                  {Math.round(wind)}km/h
+                  {Math.round(weatherData.wind)}km/h
                 </li>
               </ul>
             </div>
           </div>
         </div>
-      ) : null}
-    </div>
-  );
+      </div>
+    );
+  } else {
+    const apiKey = "bc0t009fc86043a8280dae34obbeaad7";
+    let units = "metric";
+    let url = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=${units}`;
+    axios.get(url).then(updateWeather);
+    return "Loading...";
+  }
 };
 export default Weather;

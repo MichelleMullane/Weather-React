@@ -8,7 +8,7 @@ const App = () => {
     <div className="App">
       <div className="App-container">
         <header className="App-header"></header>
-        <Weather />
+        <Weather defaultCity="London" />
         <footer>
           This project was coded by{" "}
           <a
