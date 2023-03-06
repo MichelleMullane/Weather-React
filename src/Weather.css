@@ -4,41 +4,41 @@
   padding: 50px;
 }
 
-.Weather ul {
+ul {
   list-style: none;
 }
 
-.Weather .search-button {
+.search-button {
   border-radius: 8px;
   padding: 5px 10px;
   background-color: white;
   transition: all 200ms ease-in-out;
 }
 
-.Weather .search-button:hover {
+.search-button:hover {
   background-color: black;
   border: 2px dashed white;
   color: white;
 }
 
-.Weather .search-input {
+.search-input {
   border-radius: 8px;
   padding: 5px 10px;
 }
 
-.Weather .icon-temp {
+.icon-temp {
   align-items: center;
 }
 
-.Weather .city-name {
+.city-name {
   font-size: 32px;
 }
 
-.Weather .temperature {
+.temperature {
   font-size: 36px;
 }
 
-.Weather .date-description {
+.date-description {
   padding-left: 0;
   line-height: 1;
 }

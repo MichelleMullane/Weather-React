@@ -19,9 +19,10 @@ const WeatherTemperature = (props) => {
 
   if (unit === "celsius") {
     return (
-      <div>
-        <span className="temperature">{Math.round(props.celsius)}</span>
-        <span className="units">
+      <div className="d-flex">
+        <span className="temperature me-2">{Math.round(props.celsius)} </span>
+        <span className="units mt-2">
+          {" "}
           °C |{" "}
           <a href="/" onClick={showFahrenheit}>
             °F{" "}
@@ -31,9 +32,9 @@ const WeatherTemperature = (props) => {
     );
   } else {
     return (
-      <div>
-        <span className="temperature">{Math.round(fahrenheit())}</span>
-        <span className="units">
+      <div className="d-flex">
+        <span className="temperature me-2">{Math.round(fahrenheit())}</span>
+        <span className="units mt-2">
           <a href="/" onClick={showCelsius}>
             °C
           </a>{" "}
