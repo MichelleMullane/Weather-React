@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { UnitContext, UnitDispatchContext } from "./UnitContext";
 
 const WeatherTemperature = (props) => {
-  const [unit, setUnit] = useState("celsius");
+  const unit = useContext(UnitContext);
+  const dispatch = useContext(UnitDispatchContext);
 
   function showFahrenheit(event) {
     event.preventDefault();
-    setUnit("fahrenheit");
+    dispatch({
+      type: "changed",
+      unit: "fahrenheit",
+    });
   }
 
   function showCelsius(event) {
     event.preventDefault();
-    setUnit("celsius");
+    dispatch({
+      type: "changed",
+      unit: "celsius",
+    });
   }
 
   function fahrenheit() {
