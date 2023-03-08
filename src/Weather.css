@@ -2,6 +2,8 @@
   border: 2px solid black;
   border-radius: 5px;
   padding: 50px;
+  background-color: #18122b;
+  color: #fff;
 }
 
 ul {
@@ -13,11 +15,12 @@ ul {
   padding: 5px 10px;
   background-color: white;
   transition: all 200ms ease-in-out;
+  color: #443c68;
 }
 
 .search-button:hover {
-  background-color: black;
-  border: 2px dashed white;
+  background-color: #635985;
+  border: 2px solid white;
   color: white;
 }
 
@@ -32,10 +35,22 @@ ul {
 
 .city-name {
   font-size: 32px;
+  color: #beb7d5;
 }
 
 .temperature {
   font-size: 36px;
+}
+
+.units-link {
+  color: #bbaee9;
+  text-decoration: none;
+}
+
+.units-link:hover {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 800;
 }
 
 .date-description {

@@ -6,7 +6,8 @@ const WeatherInfo = (props) => {
   return (
     <div>
       <h3>
-        Current Weather in <em className="city-name">{props.data.name}</em>{" "}
+        Current Weather in{" "}
+        <strong className="city-name">{props.data.name}</strong>{" "}
       </h3>
       <ul className="date-description">
         <li>

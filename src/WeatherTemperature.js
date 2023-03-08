@@ -32,7 +32,7 @@ const WeatherTemperature = (props) => {
         <span className="units mt-2">
           {" "}
           °C |{" "}
-          <a href="/" onClick={showFahrenheit}>
+          <a href="/" onClick={showFahrenheit} className="units-link">
             °F{" "}
           </a>
         </span>
@@ -43,7 +43,7 @@ const WeatherTemperature = (props) => {
       <div className="d-flex">
         <span className="temperature me-2">{Math.round(fahrenheit())}</span>
         <span className="units mt-2">
-          <a href="/" onClick={showCelsius}>
+          <a href="/" onClick={showCelsius} className="units-link">
             °C
           </a>{" "}
           | °F
